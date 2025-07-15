@@ -59,12 +59,8 @@ document.getElementById("updatebtn").addEventListener("click", async () => {
 
     switch (selectedValue) {
       case "0":
-        // Najpierw oficjalne akcje z DBM-POLSKA
         await downloadAndWriteFiles(endpoints.actions, actLoc);
-
-        // Następnie Twoje mody z DBMEuforiaMods (nadpisują tylko jeśli pliki się powielają)
         await downloadAndWriteFiles(endpoints.actionsEuforia, actLoc);
-
         alert("Actions (DBM + Euforia Mods) have been updated!");
         break;
 
@@ -101,31 +97,51 @@ document.getElementById("updatebtn").addEventListener("click", async () => {
         alert("bot.js have been updated!");
         break;
 
-      case "6":
-        {
-          await downloadAndWriteFiles(
-            "https://api.github.com/repos/DBM-POLSKA/DBM-14/contents/dbm-files/resources/app/html",
-            path.join(dbmResourcesPath, "html")
-          );
+      case "6": {
+        const dbmEnhancedPaths = [
+          "html",
+          "html/dbm_enhanced/css",
+          "html/dbm_enhanced/img",
+          "html/dbm_enhanced/js"
+        ];
 
-          await downloadAndWriteFiles(
-            "https://api.github.com/repos/DBM-POLSKA/DBM-14/contents/dbm-files/resources/app/html/dbm_enhanced/css",
-            path.join(dbmResourcesPath, "html", "dbm_enhanced", "css")
-          );
+        const basePathOfficial = "https://api.github.com/repos/DBM-POLSKA/DBM-14/contents/dbm-files/resources/app";
+        const basePathEuforia = "https://api.github.com/repos/euforia44/DBMEuforiaMods/contents/resources?ref=90029851bc9c9afe4d919592b7f3d32394d9ace7";
 
-          await downloadAndWriteFiles(
-            "https://api.github.com/repos/DBM-POLSKA/DBM-14/contents/dbm-files/resources/app/html/dbm_enhanced/img",
-            path.join(dbmResourcesPath, "html", "dbm_enhanced", "img")
-          );
+        const useOfficialSource = async () => {
+          try {
+            const res1 = await fetch(`${basePathOfficial}`);
+            const res2 = await fetch(`${basePathEuforia}`);
+            const data1 = await res1.json();
+            const data2 = await res2.json();
 
-          await downloadAndWriteFiles(
-            "https://api.github.com/repos/DBM-POLSKA/DBM-14/contents/dbm-files/resources/app/html/dbm_enhanced/js",
-            path.join(dbmResourcesPath, "html", "dbm_enhanced", "js")
-          );
+            if (!Array.isArray(data1) || !Array.isArray(data2)) return false;
 
-          alert("DBM Enhanced interface has been updated!");
+            const match = data1.every((file1) => {
+              const file2 = data2.find((f) => f.name === file1.name);
+              return file2 && file1.sha === file2.sha;
+            });
+
+            return !match; // true = używaj oficjalnych, false = twoje
+          } catch {
+            return false;
+          }
+        };
+
+        const useOfficial = await useOfficialSource();
+
+        for (const folder of dbmEnhancedPaths) {
+          const fullPath = path.join(dbmResourcesPath, folder);
+          const fullUrl = useOfficial
+            ? `${basePathOfficial}/${folder}`
+            : `${basePathEuforia}/${folder.split("/").slice(1).join("/")}`;
+
+          await downloadAndWriteFiles(fullUrl, fullPath);
         }
+
+        alert(`DBM Enhanced interface has been updated from ${useOfficial ? "official" : "your custom"} source!`);
         break;
+      }
 
       default:
         alert("Unsupported option.");
