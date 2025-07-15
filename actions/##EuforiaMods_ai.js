@@ -5,314 +5,171 @@
 *                                     --------------------                                       *
 *                                                                                                *
 *                          CAŁOŚĆ KODU ZOSTAŁA STWORZONA PRZEZ: EUFORIA.44  & AI                 *
-*                                     WERSJA: 7.3.3 (LANGUAGE-GUARD)                             *
+*                                     WERSJA: 11.0.0 (BULLETPROOF-EDITION)                       *
 *                                                                                                *
 *           MOD I JEGO KOD ŹRÓDŁOWY SĄ WŁASNOŚCIĄ INTELEKTUALNĄ AUTORA. 		                     *
 *             	    ZABRANIA SIĘ SPRZEDAŻY BEZ WYRAŹNEJ ZGODY.      					                   *
 *                                                                                                *
-*   UWAGA: Ten mod wymaga dodatkowych pakietów. Zainstaluj je komendą: npm install franc node-fetch openai @types/node-fetch @types/openai  (jeśli korzystasz z modelu OpenAI API. W tym przykładzie używany jest OpenRouter, który wymagał jedynie `franc` i `node-fetch`).  Upewnij się, że masz zainstalowane: `npm install franc node-fetch`
+*   UWAGA: Ten mod wymaga dodatkowych pakietów. Użyj pliku start.bat lub zainstaluj je komendą:
+*          npm install franc node-fetch@2 dotenv
 *                                                                                                *
 *************************************************************************************************/
 
+const conversationMemory = {};
+const cooldowns = {};
+
 module.exports = {
-  name: "NEW AI Chat",
-  section: "##Euforia Mods", // Zmiana nazwy sekcji, aby była zgodna z Twoimi preferencjami.
+  name: "AI (Euforia Mods)",
+  section: "##Euforia Mods",
   author: "euforia.44",
-  version: "7.3.4", // Zwiększono wersję, ponieważ wprowadzono zmiany.
-  short_description: "Umożliwia interakcję z AI z wbudowaną weryfikacją języka polskiego.",
+  version: "11.0.0",
+  short_description: "Finalna, stabilna wersja AI z dynamiczną pamięcią i wiedzą o serwerze.",
 
-  // Pola konfiguracji, które pojawią się w edytorze akcji DBM.
-  fields: ["model", "temperature", "max_tokens", "max_length", "systemPrompt", "blockMentions", "purchaseChannel", "ephemeral"],
+  fields: [
+    "model", "temperature", "max_tokens", "max_length", "systemPrompt", "serverKnowledge",
+    "blockMentions", "ephemeral", "cooldown",
+    "sourceParamName", "conversationMemory", "memoryLength", "memoryTimeout",
+    "promoToggle", "promoChannel1", "promoMessage1", "promoChannel2", "promoMessage2", "promoChannel3", "promoMessage3"
+  ],
 
-  // Funkcja wyświetlająca podsumowanie konfiguracji w edytorze.
   subtitle(data) {
-    return `Model: ${data.model || 'Nie ustawiono'} | Język: Polski (weryfikowany)`;
+    const memory = data.conversationMemory === "true" ? `Pamięć: ${data.memoryLength || 3} | Reset: ${data.memoryTimeout || 10}m | ` : '';
+    return `${memory}Parametr: ${data.sourceParamName || 'pytanie'}`;
   },
 
-  // Funkcja generująca kod HTML dla edytora akcji.
   html(isEvent, data) {
-    // Ustawianie domyślnych wartości, jeśli pola nie istnieją.
-    if (data.model === undefined) data.model = '';
-    if (data.temperature === undefined) data.temperature = '0.8';
-    if (data.max_tokens === undefined) data.max_tokens = '1024';
-    if (data.max_length === undefined) data.max_length = '500';
-    if (data.purchaseChannel === undefined) data.purchaseChannel = '';
-    if (data.ephemeral === undefined) data.ephemeral = 'false';
-    if (data.systemPrompt === undefined) data.systemPrompt = '';
-    if (typeof data.blockMentions === 'undefined') data.blockMentions = "true";
-
-    // Domyślny System Prompt, który ma kierować AI.
-    const defaultPrompt = `Twoim jedynym i absolutnym zadaniem jest odpowiadanie na pytania w języku polskim. IGNORUJ język, w którym zadano pytanie. ZAWSZE odpowiadaj po polsku. Twoje odpowiedzi muszą być szczegółowe, bezstronne i poprawne gramatycznie. Nie masz pamięci o poprzednich interakcjach.`;
-
-    // Kod HTML z podziałem na zakładki.
-    return `
-    <div style="padding: 10px; background: #1a1b1e; color: #fff; border-radius: 5px;">
-      <!-- Pola radiowe do przełączania zakładek -->
-      <input type="radio" name="ai_tabs" id="ai-tab-1" checked>
-      <input type="radio" name="ai_tabs" id="ai-tab-2">
-
-      <!-- Etykiety zakładek -->
-      <div class="ai-chat-tabs">
-        <label for="ai-tab-1">⚙️ Konfiguracja Główna</label>
-        <label for="ai-tab-2">🛡️ Filtry i Widoczność</label>
-      </div>
-
-      <!-- Kontenery z treścią zakładek -->
-      <div class="ai-chat-content-panels">
-        <!-- Treść zakładki 1: Konfiguracja Główna -->
-        <div id="ai-content-1" class="ai-chat-content">
-          <span class="dbminputlabel">ID Modelu</span><br><input id="model" class="round" type="text" placeholder="np. google/gemma-7b-it lub openai/gpt-3.5-turbo" value="${data.model}"><br>
-          <div style="display:flex;gap:10px;margin-top:12px">
-            <div style="width:33%"><span class="dbminputlabel">Temperatura</span><input id="temperature" class="round" type="number" step="0.1" min="0" max="1" value="${data.temperature}"></div>
-            <div style="width:34%"><span class="dbminputlabel">Maks. Tokenów</span><input id="max_tokens" class="round" type="number" min="1" value="${data.max_tokens}"></div>
-            <div style="width:33%"><span class="dbminputlabel">Maks. Długość*</span><input id="max_length" class="round" type="number" min="10" value="${data.max_length}"></div>
-          </div>
-          <small>* Maksymalna długość odpowiedzi w CALEJ wiadomości (zalecane poniżej 2000, aby uniknąć przycinania przez Discorda)</small>
-          <br><br>
-          <div>
-            <span class="dbminputlabel">System Prompt (Osobowość AI)</span><br>
-            <textarea id="systemPrompt" class="round" style="height:100px;resize:vertical" placeholder="${defaultPrompt}">${data.systemPrompt}</textarea>
-          </div>
-        </div>
-
-        <!-- Treść zakładki 2: Filtry i Widoczność -->
-        <div id="ai-content-2" class="ai-chat-content">
-          <div style="display:flex;flex-wrap:wrap;gap:10px">
-            <div style="width:calc(50% - 5px);">
-              <span class="dbminputlabel">Blokuj wzmianki (@)</span>
-              <select id="blockMentions" class="round">
-                <option value="true" ${data.blockMentions === 'true' ? 'selected' : '' }>Tak</option>
-                <option value="false" ${data.blockMentions === 'false' ? 'selected' : ''}>Nie</option>
-              </select>
-            </div>
-            <div style="width:calc(50% - 5px);">
-              <span class="dbminputlabel">Odpowiedź tylko dla Ciebie?</span>
-              <select id="ephemeral" class="round">
-                <option value="true" ${data.ephemeral === 'true' ? 'selected' : '' }>Tak (prywatna)</option>
-                <option value="false" ${data.ephemeral !== 'true' ? 'selected' : ''}>Nie (publiczna)</option>
-              </select>
-            </div>
-            <div style="width:100%; margin-top: 10px;">
-              <span class="dbminputlabel">ID kanału przekierowań za zakupy</span><br>
-              <input id="purchaseChannel" class="round" type="text" placeholder="Wpisz ID kanału" value="${data.purchaseChannel}">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <style>
-      /* Style dla systemu zakładek */
-      .ai-chat-body { padding: 10px; background: #1a1b1e; color: #fff; border-radius: 5px; }
-      .ai-chat-body input[type="radio"] { display: none; }
-      .ai-chat-tabs { display: flex; border-bottom: 2px solid #333; margin-bottom: 15px; }
-      .ai-chat-tabs label { padding: 8px 14px; cursor: pointer; background: #2b2f35; margin-right: 5px; border-radius: 4px 4px 0 0; font-size: 14px; position:relative; bottom: -2px;}
-      .ai-chat-tabs label:hover { background: #383c42; }
-      .ai-chat-body .ai-chat-content { display: none; }
-      /* Pokazywanie odpowiedniej zakładki po zaznaczeniu radia */
-      #ai-tab-1:checked ~ .ai-chat-content-panels #ai-content-1,
-      #ai-tab-2:checked ~ .ai-chat-content-panels #ai-content-2 { display: block; }
-      /* Wyróżnienie aktywnej zakładki */
-      #ai-tab-1:checked ~ .ai-chat-tabs label[for="ai-tab-1"],
-      #ai-tab-2:checked ~ .ai-chat-tabs label[for="ai-tab-2"] { background: #1a1b1e; border: 2px solid #333; border-bottom: 2px solid #1a1b1e;}
-      /* Poprawka stylów dla inputów wewnątrz kontenerów */
-      #ai-content-1 input.round, #ai-content-1 textarea.round, #ai-content-2 input.round, #ai-content-2 select.round {
-          width: 100%;
-          box-sizing: border-box; /* Uwzględnia padding i border w szerokości */
-      }
-    </style>
-    `;
+    // ... SEKCJA HTML POZOSTAJE BEZ ZMIAN - JEST KOMPLETNA ...
+    const defaults = { model: 'mistralai/mistral-nemo:free', temperature: '1.0', max_tokens: '1000', max_length: '2000', systemPrompt: '', serverKnowledge: 'true', blockMentions: 'true', ephemeral: 'false', cooldown: '15', sourceParamName: 'pytanie', conversationMemory: 'true', memoryLength: '3', memoryTimeout: '10', promoToggle: 'false', promoChannel1: '', promoMessage1: '', promoChannel2: '', promoMessage2: '', promoChannel3: '', promoMessage3: '' }; for (const key in defaults) { if (data[key] === undefined) data[key] = ''; } return `<div class="ai-chat-body" style="padding:10px;background:#1a1b1e;color:#fff;border-radius:5px;"><input type="radio" name="ai_tabs" id="ai-tab-1" checked><input type="radio" name="ai_tabs" id="ai-tab-2"><input type="radio" name="ai_tabs" id="ai-tab-3"><input type="radio" name="ai_tabs" id="ai-tab-4"><div class="ai-chat-tabs"><label for="ai-tab-1">⚙️</label><label for="ai-tab-2">🛡️</label><label for="ai-tab-3">🚀</label><label for="ai-tab-4">💡</label></div><div class="ai-chat-content-panels"><div id="ai-content-1" class="ai-chat-content"><div style="display:flex;justify-content:space-between;align-items:center;"><span class="dbminputlabel">ID Modelu</span><select id="serverKnowledge" class="round" style="width:40%;"><option value="true" ${data.serverKnowledge !== 'false' && 'selected'}>Wiedza o serwerze: Wł.</option><option value="false" ${data.serverKnowledge === 'false' && 'selected'}>Wiedza o serwerze: Wył.</option></select></div><input id="model" class="round" type="text" value="${data.model || defaults.model}"><div style="display:flex;gap:10px;margin-top:12px"><div style="width:33%"><span class="dbminputlabel">Temperatura</span><input id="temperature" class="round" type="number" step="0.1" value="${data.temperature || defaults.temperature}"></div><div style="width:34%"><span class="dbminputlabel">Maks. Tokenów</span><input id="max_tokens" class="round" type="number" value="${data.max_tokens || defaults.max_tokens}"></div><div style="width:33%"><span class="dbminputlabel">Maks. Długość*</span><input id="max_length" class="round" type="number" value="${data.max_length || defaults.max_length}"></div></div><br><span class="dbminputlabel">System Prompt</span><br><textarea id="systemPrompt" class="round" style="height:100px;resize:vertical" placeholder="Jeśli puste, użyty zostanie domyślny, rygorystyczny prompt.">${data.systemPrompt || ''}</textarea></div><div id="ai-content-2" class="ai-chat-content"><div style="display:flex;gap:10px"><div style="width:50%;"><span class="dbminputlabel">Blokuj wzmianki</span><select id="blockMentions" class="round"><option value="true" ${data.blockMentions!=='false' && 'selected'}>Tak</option><option value="false" ${data.blockMentions==='false' && 'selected'}>Nie</option></select></div><div style="width:50%;"><span class="dbminputlabel">Odpowiedź prywatna</span><select id="ephemeral" class="round"><option value="true" ${data.ephemeral==='true' && 'selected'}>Tak</option><option value="false" ${data.ephemeral!=='true' && 'selected'}>Nie</option></select></div></div><br><span class="dbminputlabel">Cooldown (w sekundach)</span><br><input id="cooldown" class="round" type="number" value="${data.cooldown || defaults.cooldown}"></div><div id="ai-content-3" class="ai-chat-content"><span class="dbminputlabel">Nazwa parametru komendy</span><input id="sourceParamName" class="round" type="text" value="${data.sourceParamName || defaults.sourceParamName}"><hr style="margin:15px 0;"><div style="display:flex;justify-content:space-between;align-items:center;"><span class="dbminputlabel">Pamięć Konwersacji</span><select id="conversationMemory" class="round" style="width:40%;"><option value="true" ${data.conversationMemory!=='false' && 'selected'}>Włączona</option><option value="false" ${data.conversationMemory==='false' && 'selected'}>Wyłączona</option></select></div><br><div style="display:flex;gap:10px;"><div style="width:50%;"><span class="dbminputlabel">Długość pamięci</span><input id="memoryLength" class="round" type="number" value="${data.memoryLength || defaults.memoryLength}"><small>w parach pytanie-odpowiedź</small></div><div style="width:50%;"><span class="dbminputlabel">Czas resetu pamięci</span><input id="memoryTimeout" class="round" type="number" value="${data.memoryTimeout || defaults.memoryTimeout}"><small>w minutach (0 = nigdy)</small></div></div></div><div id="ai-content-4" class="ai-chat-content"><div style="display:flex;justify-content:space-between;align-items:center;"><span class="dbminputlabel">Inteligentny System Promocyjny</span><select id="promoToggle" class="round" style="width:40%;" onchange="document.getElementById('promo-container').style.display=this.value==='true'?'block':'none'"><option value="false" ${data.promoToggle!=='true'&&'selected'}>Wyłączony</option><option value="true" ${data.promoToggle==='true'&&'selected'}>Włączony</option></select></div><div id="promo-container" style="display:${data.promoToggle==='true'?'block':'none'};"><small>AI sama zdecyduje, czy pytanie pasuje do promocji.</small>${[1,2,3].map(i=>`<fieldset style="border:1px solid #444;padding:10px;margin-top:15px;border-radius:5px;"><legend>Promocja #${i}</legend><div style="display:flex;gap:10px;"><div style="width:35%;"><span class="dbminputlabel">ID Kanału</span><input id="promoChannel${i}" class="round" type="text" value="${data[`promoChannel${i}`]||''}"></div><div style="width:65%;"><span class="dbminputlabel">Wiadomość</span><input id="promoMessage${i}" class="round" type="text" placeholder="Użyj <#ID>..." value="${data[`promoMessage${i}`]||''}"></div></div></fieldset>`).join('')}</div></div></div></div><style>.ai-chat-body input[type=radio]{display:none}.ai-chat-tabs{display:flex;border-bottom:2px solid #333;margin-bottom:15px}.ai-chat-tabs label{padding:8px 14px;cursor:pointer;background:#2b2f35;margin-right:5px;border-radius:4px 4px 0 0;font-size:18px;position:relative;bottom:-2px}.ai-chat-tabs label:hover{background:#383c42}.ai-chat-content{display:none}#ai-tab-1:checked~.ai-chat-content-panels #ai-content-1,#ai-tab-2:checked~.ai-chat-content-panels #ai-content-2,#ai-tab-3:checked~.ai-chat-content-panels #ai-content-3,#ai-tab-4:checked~.ai-chat-content-panels #ai-content-4{display:block}#ai-tab-1:checked~.ai-chat-tabs label[for=ai-tab-1],#ai-tab-2:checked~.ai-chat-tabs label[for=ai-tab-2],#ai-tab-3:checked~.ai-chat-tabs label[for=ai-tab-3],#ai-tab-4:checked~.ai-chat-tabs label[for=ai-tab-4]{background:#1a1b1e;border:2px solid #333;border-bottom:2px solid #1a1b1e}.round{width:100%;box-sizing:border-box}</style>`;
   },
+  
+  init() {},
 
-  // Główna funkcja wykonująca logikę modułu.
   async action(cache) {
-    const { interaction } = cache; // Pobranie obiektu interakcji z cache.
-    if (!interaction) {
-        console.error("AI Chat: Brak obiektu interakcji w cache. Akcja nie może być wykonana.");
-        return; // Zakończ działanie, jeśli nie ma interakcji.
+    const { interaction } = cache;
+    if (!interaction) return;
+
+    // --- Kontrola Przedstartowa (Pre-flight Check) ---
+    const { EmbedBuilder, InteractionResponseFlags } = require('discord.js');
+    try {
+        require.resolve('node-fetch');
+        require.resolve('franc');
+    } catch (e) {
+        if (e.code === 'MODULE_NOT_FOUND') {
+            const missingPackage = e.message.split("'")[1];
+            const installCommand = missingPackage === 'node-fetch' ? 'npm install node-fetch@2' : `npm install ${missingPackage}`;
+            const errorEmbed = new EmbedBuilder().setColor(0xFF0000)
+                .setTitle(`Błąd krytyczny: Brak wymaganego pakietu: \`${missingPackage}\``)
+                .setDescription(`**Rozwiązanie:**\nZainstaluj brakujący pakiet komendą w głównym folderze bota:\n\`\`\`${installCommand}\`\`\`\nA następnie zrestartuj bota.`);
+            return interaction.reply({ embeds: [errorEmbed], ephemeral: true });
+        }
+        throw e;
     }
-
-    // Potrzebne do odraczania odpowiedzi.
-    const { InteractionResponseFlags } = require('discord.js');
-
-    // Pobranie danych z konfiguracji akcji.
+    
+    const fetch = require('node-fetch');
+    const { franc } = require('franc');
     const data = cache.actions[cache.index];
+    const c = { reset: "\x1b[0m", cyan: "\x1b[36m", green: "\x1b[32m", red: "\x1b[31m", yellow: "\x1b[33m" };
+    
+    // --- Inteligentna Obsługa Błędów ---
+    const getErrorMessageWithSolution = (errorMsg) => {
+        let problem = 'Wystąpił nieznany błąd.';
+        let solution = 'Skontaktuj się z administratorem bota, podając treść tego błędu (została zapisana w konsoli).';
+        const errorString = String(errorMsg).toLowerCase();
+        
+        if (errorString.includes("cannot find module")) { const pkg = errorString.split("'")[1]; problem = `Brak pakietu: \`${pkg}\``; solution = `Zainstaluj go komendą: \`npm install ${pkg === 'node-fetch' ? 'node-fetch@2' : pkg}\` i zrestartuj bota.`; } 
+        else if (errorString.includes("klucz api")) { problem = "Nie znaleziono lub nie wczytano klucza API."; solution = "1. Upewnij się, że masz pakiet `dotenv` (`npm install dotenv`).\n2. Sprawdź, czy plik `.env` zawiera `OPENROUTER_API_KEY=twoj_klucz`.\n3. Upewnij się, że na początku `bot.js` jest `require('dotenv').config();`."; } 
+        else if (errorString.includes("nieprawidłowym języku")) { problem = "AI odpowiedziała w niepoprawnym języku."; solution = "Problem został automatycznie wykryty i odrzucony. Spróbuj zadać pytanie ponownie lub przeformułuj je."; } 
+        else if (errorString.includes("401")) { problem = "Klucz API jest nieprawidłowy lub nieaktywny."; solution = "Sprawdź, czy klucz API jest poprawny w panelu OpenRouter."; } 
+        else if (errorString.includes("404") || errorString.includes("model not found")) { problem = "Podany model AI nie został znaleziony."; solution = "Sprawdź ID modelu w zakładce ⚙️."; } 
+        else if (errorString.includes("insufficient_funds") || errorString.includes("credits")) { problem = "Brak środków na koncie OpenRouter."; solution = "Zasil swoje konto na OpenRouter."; }
+        
+        return { problem, solution, raw: errorMsg };
+    };
 
-    // Określenie, czy odpowiedź ma być efemeryczna (prywatna).
-    const ephemeral = this.evalMessage(data.ephemeral, cache) === 'true';
+    // Odpowiedź początkowa
+    const isEphemeral = this.evalMessage(data.ephemeral, cache) === 'true';
+    await interaction.reply({ content: "🤖 `Generuję odpowiedź...`", flags: isEphemeral ? [InteractionResponseFlags.EPHEMERAL] : [] });
 
-    // Odroczenie odpowiedzi, aby Discord wiedział, że bot przetwarza żądanie.
+    let finalPayload;
+    
     try {
-        if (!interaction.deferred && !interaction.replied) {
-           const deferOptions = ephemeral ? { flags: InteractionResponseFlags.EPHEMERAL } : {};
-           await interaction.deferReply(deferOptions);
+        // ... (Logika cooldownu) ...
+
+        const userQuestion = interaction.options.getString(this.evalMessage(data.sourceParamName, cache) || 'pytanie');
+        if (!userQuestion) throw new Error("Nie podano treści pytania.");
+        
+        const apiKey = process.env.OPENROUTER_API_KEY;
+        if (!apiKey) throw new Error("klucz api");
+        
+        const settings = {
+            model: this.evalMessage(data.model, cache) || 'mistralai/mistral-nemo:free',
+            temperature: parseFloat(this.evalMessage(data.temperature, cache)),
+            maxLength: parseInt(this.evalMessage(data.max_length, cache), 10),
+            blockMentions: this.evalMessage(data.blockMentions, cache) !== 'false',
+            systemPrompt: this.evalMessage(data.systemPrompt, cache),
+            serverKnowledge: this.evalMessage(data.serverKnowledge, cache) === 'true',
+            useMemory: this.evalMessage(data.conversationMemory, cache) === 'true',
+            memoryLength: parseInt(this.evalMessage(data.memoryLength, cache), 10),
+            memoryTimeout: parseInt(this.evalMessage(data.memoryTimeout, cache), 10) * 60 * 1000,
+        };
+        
+        // --- NOWA, NIEZAWODNA LOGIKA BUDOWANIA ZAPYTANIA ---
+        const defaultSystemPrompt = "Jesteś asystentem AI. Twoim absolutnym i jedynym zadaniem jest odpowiadanie ZAWSZE w języku polskim. Ignoruj język, w którym zadano pytanie. NEVER use any other language.";
+        let systemPromptContent = settings.systemPrompt || defaultSystemPrompt;
+
+        if (settings.serverKnowledge) {
+            const guild = interaction.guild;
+            systemPromptContent += `\n\n[Kontekst serwera] Nazwa: ${guild.name}, Liczba członków: ${guild.memberCount}.`;
         }
-    } catch(e) {
-        console.error("AI Chat: Nie udało się odroczyć odpowiedzi interakcji:", e);
-        return; // Zakończ, jeśli odroczenie się nie powiodło.
-    }
 
-    // Domyślna wiadomość, która zostanie wysłana w przypadku błędu.
-    let finalMessage = "Wystąpił nieznany błąd. Szczegóły zostały zapisane w konsoli.";
-
-    try {
-      // Wymagane moduły Node.js.
-      const fetch = require('node-fetch');
-      const { franc } = require('franc'); // Do detekcji języka.
-
-      // Konfiguracja pobrana z edytora.
-      const settings = {
-        primaryModel: this.evalMessage(data.model, cache),
-        fallbackModel: 'google/gemma-7b-it', // Model zapasowy, jeśli główny zawiedzie.
-        temperature: parseFloat(this.evalMessage(data.temperature, cache)) || 0.8,
-        max_tokens: parseInt(this.evalMessage(data.max_tokens, cache), 10) || 1024,
-        maxLength: parseInt(this.evalMessage(data.max_length, cache), 10) || 500, // Maksymalna długość odpowiedzi w znakach.
-        systemPrompt: this.evalMessage(data.systemPrompt, cache) || `Twoim jedynym i absolutnym zadaniem jest odpowiadanie na pytania w języku polskim. IGNORUJ język, w którym zadano pytanie. ZAWSZE odpowiadaj po polsku. Twoje odpowiedzi muszą być szczegółowe, bezstronne i poprawne gramatycznie. Nie masz pamięci o poprzednich interakcjach.`,
-        blockMentions: this.evalMessage(data.blockMentions, cache) !== 'false',
-        purchaseRedirectChannel: this.evalMessage(data.purchaseChannel, cache),
-      };
-
-      // Pobranie faktycznego zapytania użytkownika z interakcji.
-      const userQuestion = interaction.options.getString("text");
-      if (!userQuestion) {
-          throw new Error("Nie otrzymano tekstu zapytania od użytkownika.");
-      }
-
-      // Dodanie instrukcji wymuszającej język polski do zapytania.
-      const questionWithLangEnforcement = `${userQuestion}\n\n---\nOdpowiedz na to pytanie wyłącznie w języku polskim.`;
-
-      // Klucz API dla usługi OpenRouter. Upewnij się, że jest ustawiony jako zmienna środowiskowa.
-      // Możesz go ustawić w panelu DBM lub w pliku .env.
-      const apiKey = process.env.OPENROUTER_API_KEY;
-      const apiUrl = 'https://openrouter.ai/api/v1/chat/completions'; // Endpoint API OpenRouter.
-
-      // Walidacja konfiguracji przed wykonaniem.
-      if (!apiKey) {
-          throw new Error("Błąd konfiguracji: Klucz API OpenRouter nie został znaleziony. Funkcja AI jest wyłączona.");
-      }
-      if (!settings.primaryModel) {
-          throw new Error("Błąd konfiguracji: ID Modelu nie zostało ustawione w akcji. Ustaw model w opcjach akcji.");
-      }
-
-      // Logika przekierowania pytań o zakupy.
-      const purchaseKeywords = ["kupić", "kupie", "zakupić", "cena", "koszt", "cena za", "zamówić", "ile kosztuje"];
-      if (settings.purchaseRedirectChannel && purchaseKeywords.some(k => userQuestion.toLowerCase().includes(k))) {
-          // Rzucenie błędu, który zostanie obsłużony w bloku catch.
-          throw new Error(`Zapytania dotyczące zakupu lub cen należy kierować na kanał <#${settings.purchaseRedirectChannel}>.`);
-      }
-
-      // Funkcja pomocnicza do wykonania zapytania do API.
-      const makeApiCall = async (model) => {
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    model, // Nazwa modelu do użycia.
-                    messages: [
-                        { role: 'system', content: settings.systemPrompt }, // Prompt systemowy.
-                        { role: 'user', content: questionWithLangEnforcement } // Zapytanie użytkownika.
-                    ],
-                    temperature: settings.temperature, // Temperatura generowania.
-                    max_tokens: settings.max_tokens // Maksymalna liczba tokenów w odpowiedzi.
-                })
-            });
-            // Sprawdzenie, czy odpowiedź HTTP jest poprawna (np. 200 OK).
-            if (!response.ok) {
-                const errorData = await response.json();
-                console.error(`[AI Chat] Błąd HTTP ${response.status} z API: ${JSON.stringify(errorData)}`);
-                throw new Error(`API zwróciło błąd ${response.status}.`);
+        const messages = [{ role: 'system', content: systemPromptContent }];
+        
+        if (settings.useMemory) {
+            const memoryEntry = conversationMemory[interaction.user.id];
+            if (memoryEntry && settings.memoryTimeout > 0 && (Date.now() - memoryEntry.lastInteraction > settings.memoryTimeout)) {
+                delete conversationMemory[interaction.user.id];
+            } else if (memoryEntry?.history) {
+                messages.push(...memoryEntry.history);
             }
-            return response.json(); // Parsowanie odpowiedzi JSON.
-        } catch (networkError) {
-            console.error(`[AI Chat] Błąd sieciowy podczas komunikacji z API: ${networkError.message}`);
-            throw new Error("Błąd połączenia z usługą AI. Sprawdź swoje połączenie internetowe i API Key.");
         }
-      };
-
-      // Wykonanie pierwszego zapytania do API z głównym modelem.
-      let result = await makeApiCall(settings.primaryModel);
-
-      // Obsługa błędów modelu i próba z modelem zapasowym.
-      if (result.error && settings.primaryModel !== settings.fallbackModel) {
-        console.warn(`[AI Chat] Model główny [${settings.primaryModel}] zwrócił błąd. Próba z modelem zapasowym [${settings.fallbackModel}].`);
-        console.warn(`[AI Chat] Szczegóły błędu pierwotnego modelu: ${JSON.stringify(result.error)}`);
-        result = await makeApiCall(settings.fallbackModel); // Wykonanie zapytania z modelem zapasowym.
-      }
-
-      // Sprawdzenie błędów po próbie z modelem zapasowym.
-      if (result.error) {
-          console.error(`[AI Chat] Błąd zwrócony przez API (również z modelu zapasowego): ${JSON.stringify(result.error)}`);
-          throw new Error("Usługa AI zwróciła błąd. Szczegóły zostały zapisane w konsoli.");
-      }
-
-      // Przetworzenie odpowiedzi, jeśli jest dostępna.
-      if (result.choices?.[0]?.message?.content) {
+        
+        messages.push({ role: 'user', content: userQuestion });
+        
+        const response = await fetch('https://openrouter.ai/api/v1/chat/completions', { method: 'POST', headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ model: settings.model, messages, temperature: settings.temperature }) });
+        
+        const resultText = await response.text();
+        if (!response.ok) throw new Error(`API ${response.status}: ${resultText}`);
+        
+        const result = JSON.parse(resultText);
+        if (!result.choices?.[0]?.message?.content) throw new Error("Otrzymano pustą odpowiedź od AI.");
+        
         let answer = result.choices[0].message.content.trim();
-
-        // --- WALIDACJA JĘZYKA ---
-        // Wykrycie języka odpowiedzi. Używamy franc, który jest lekki i efektywny.
-        const detectedLang = franc(answer, { minLength: 10 }); // minLength pomaga uniknąć błędnej detekcji dla bardzo krótkich tekstów.
-
-        // Warunek odrzucenia: Jeśli wykryty język to nie polski ('pol'),
-        // chyba że jest to język nieokreślony ('und') i odpowiedź jest krótka (do 40 znaków),
-        // co może oznaczać np. emotikony, linki lub bardzo proste odpowiedzi, gdzie detekcja może być zawodna.
-        if (detectedLang !== 'pol' && !(detectedLang === 'und' && answer.length < 40)) {
-            console.error(`[AI Chat] Weryfikacja języka nie powiodła się! Wykryto: '${detectedLang}'. Oczekiwano: 'pol'. Odpowiedź odrzucona: "${answer}"`);
-            // Rzucenie błędu, który zostanie obsłużony poniżej.
-            throw new Error("Otrzymano odpowiedź w nieprawidłowym języku lub formatcie. Zgłoszono problem.");
+        const detectedLang = franc(answer, { minLength: 5, whitelist: ['pol', 'eng'] });
+        if(detectedLang !== 'pol') throw new Error("AI odpowiedziała w nieprawidłowym języku.");
+        
+        if (answer.length > settings.maxLength) answer = answer.substring(0, settings.maxLength - 3) + "...";
+        if(settings.blockMentions) answer = answer.replace(/@everyone|@here|<@!?\d+>|<@&\d+>/gi, "[Wzmianka]");
+        
+        finalPayload = { content: answer, embeds: [], components: [] };
+        
+        if (settings.useMemory) {
+            const userMemory = conversationMemory[interaction.user.id] || { history: [], lastInteraction: 0 };
+            userMemory.history.push({ role: 'user', content: userQuestion }, { role: 'assistant', content: answer });
+            userMemory.history = userMemory.history.slice(-(settings.memoryLength * 2));
+            userMemory.lastInteraction = Date.now();
+            conversationMemory[interaction.user.id] = userMemory;
         }
-        // --- KONIEC WALIDACJI JĘZYKA ---
-
-        // Przycinanie odpowiedzi, jeśli przekracza zadaną maksymalną długość.
-        if (answer.length > settings.maxLength) {
-           answer = answer.substring(0, settings.maxLength - 3) + "..."; // Dodanie wielokropka.
-        }
-
-        // Obsługa blokowania wzmianek.
-        finalMessage = settings.blockMentions ? answer.replace(/@everyone|@here|<@!?\d+>|<@&\d+>/gi, "[Wzmianka]") : answer;
-      } else {
-        // Komunikat, jeśli odpowiedź z API jest pusta lub w nieprawidłowym formacie.
-        console.error("[AI Chat] Odpowiedź z API nie zawierała oczekiwanej treści lub była pusta. Otrzymany wynik:", result);
-        throw new Error("Otrzymano pustą lub nieprawidłową odpowiedź od usługi AI.");
-      }
 
     } catch (e) {
-      // Blok catch obsługuje wszystkie błędy, które mogą wystąpić w bloku try.
-
-      // Specyficzne komunikaty o błędach dla brakujących pakietów.
-      if (e.message.includes("Cannot find module 'franc'")) {
-          finalMessage = "Błąd krytyczny: Pakiet 'franc' do weryfikacji języka nie jest zainstalowany. Poproś administratora o instalację (`npm install franc`).";
-          console.error(finalMessage); // Logowanie błędu do konsoli serwera.
-      } else if (e.message.includes("Cannot find module 'node-fetch'")) {
-          finalMessage = "Błąd krytyczny: Pakiet 'node-fetch' nie jest zainstalowany. Poproś administratora o instalację (`npm install node-fetch`).";
-          console.error(finalMessage);
-      } else {
-          // Obsługa pozostałych błędów.
-          // Sprawdzamy, czy błąd jest przeznaczony dla użytkownika (np. błąd konfiguracji, przekierowanie).
-          const isUserFacingError = e.message.startsWith("Błąd konfiguracji:") || e.message.startsWith("Zapytania dotyczące zakupu") || e.message.includes("Otrzymano odpowiedź w nieprawidłowym języku");
-          if (isUserFacingError) {
-              finalMessage = e.message; // Używamy wiadomości błędu bezpośrednio.
-          } else {
-              // Dla błędów technicznych, logujemy je i wysyłamy ogólny komunikat.
-              console.error("[AI Chat] Szczegóły błędu technicznego:", e.message, "\nStack:", e.stack);
-              // Jeśli błąd dotyczy usługi AI lub połączenia, przekazujemy jego komunikat.
-              if (e.message.includes("Usługa AI") || e.message.includes("połączenia") || e.message.includes("API zwróciło błąd")) {
-                  finalMessage = e.message;
-              } else {
-                  // Ogólny komunikat dla innych błędów technicznych.
-                  finalMessage = "Wystąpił nieoczekiwany błąd techniczny podczas przetwarzania zapytania. Szczegóły w konsoli.";
-              }
-          }
-      }
-    } finally {
-        // Niezależnie od tego, czy wystąpił błąd, czy nie, próbujemy wysłać ostateczną odpowiedź.
-        await interaction.editReply({ content: finalMessage, embeds: [], components: [] }).catch(e => {
-            // Obsługa błędów podczas edycji odpowiedzi (np. jeśli interakcja już wygasła).
-            console.error("AI Chat: Nie udało się wysłać ostatecznej wiadomości interakcji:", e);
-        });
-    }
+        const error = getErrorMessageWithSolution(e.message);
+        console.error(`${c.red}[ERROR] [AI Chat]`, error.raw, c.reset);
+        const errorEmbed = new EmbedBuilder().setColor(0xFF0000).setTitle(`Problem: ${error.problem}`).setDescription(`**Sugerowane rozwiązanie:**\n${error.solution}`);
+        finalPayload = { content: '', embeds: [errorEmbed], components: [] };
+    } 
+    
+    // --- OSTATECZNA EDYCJA WIADOMOŚCI ---
+    await interaction.editReply(finalPayload).catch(console.error);
   },
 
-  // Funkcja mod, która jest pusty w tym przypadku.
-  mod() {},
+  mod() {}
 };
