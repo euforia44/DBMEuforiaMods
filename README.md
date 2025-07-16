@@ -3,6 +3,23 @@ ABY UŻYĆ MOICH MODÓW ITD, musisz najpierw pobrać WSZYSTKO Z https://github.c
 Następnie należy zamienić resources z dbm-polska na moje https://github.com/euforia44/DBMEuforiaMods/tree/main/resources
 i ponownie uruchomić aplikację Discord Bot maker i zaaktualizować wszystko w DBM ENCHANCED na najnowsze wersje
 
+# TUTORIAL
+
+## Ustaw bota
+Przejdź na stronę Discord Developer Portal i zaloguj się.
+Wybierz swoją aplikację bota z listy
+W menu po lewej stronie kliknij w zakładkę "Bot".
+Zjedź w dół, aż znajdziesz sekcję o nazwie Privileged Gateway Intents.
+Włącz wszystkie trzy przełączniki, które tam znajdziesz:
+PRESENCE INTENT
+SERVER MEMBERS INTENT
+MESSAGE CONTENT INTENT
+Na dole strony, gdy tylko zmienisz ustawienia, pojawi się zielony przycisk "Save Changes". Koniecznie go kliknij, aby zapisać zmiany!
+Po zapisaniu zmian, wróć do DBM i uruchom bota ponownie.
+
+
+
+
 
 # NPM
 
@@ -15,3 +32,4 @@ Wklej tą komendę
 Potrzebujesz stworzyć w głównym folderze bota plik `.env` w którym dodasz OPENROUTER_API_KEY=sk-.... [TWÓJ KLUCZ]
 Skąd zdobyć klucz?
 wejdź na https://openrouter.ai/ i ogarnij sobie
+
