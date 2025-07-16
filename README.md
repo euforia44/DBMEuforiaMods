@@ -4,8 +4,8 @@ Następnie należy zamienić resources z dbm-polska na moje https://github.com/e
 i ponownie uruchomić aplikację Discord Bot maker i zaaktualizować wszystko w DBM ENCHANCED na najnowsze wersje
 
 
-# NPM INSTALACJA
+# NPM
 
 W głównym folderze włącz CMD
 Wklej tą komendę
-```npm install canvas franc node-fetch@2 dotenv```
+```npm install discord.js@14.21.0 canvas franc node-fetch@2 dotenvv```
