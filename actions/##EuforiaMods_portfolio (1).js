@@ -1,1 +1,379 @@
-function _0x47ad(_0x4ad76c,_0x1e5734){const _0x5b20a7=_0x5b20();return _0x47ad=function(_0x47ad8c,_0x323844){_0x47ad8c=_0x47ad8c-0x192;let _0xbd878c=_0x5b20a7[_0x47ad8c];return _0xbd878c;},_0x47ad(_0x4ad76c,_0x1e5734);}function _0x5b20(){const _0xf4d413=['enableLinkButton','backgroundImageURL','8wvucAO','measureText','drawImage','topLayerImageURL','width','error','textShadowBlur','deferReply','portfolio.png','fillStyle','shadowOffsetX','shadowColor','1186421UAFyrK','embedColor','font','setLabel','Ephemeral','fetch','[Portfolio\x20Mod]','CustomFont','arcTo','image/png','arrayBuffer','discord.js','from','getString','px\x20\x22','Timeout','HTTP\x20error!\x20status:\x20','globalAlpha','resolve','Wystąpił\x20nieoczekiwany\x20błąd.\x20Sprawdź\x20konsolę\x20bota.','function','textShadowOffsetY','\x20dc.euforia.fun','fillText','textVerticalAlign','dlaKogoField','index','embedDesc','reaction1','png','abort','fontSize','#FFFFFF','callNextAction','shadowBlur','6735274GPOely','buttonLinkURL','mainImageScale','right','textShadowColor','targetChannelID','beginPath','setStyle','UND_ERR_CONNECT_TIMEOUT','member','createCanvas','3573SItlYi','33GJjKro','shadowOffsetY','\x20Nie\x20udało\x20się\x20dodać\x20reakcji\x20\x22','4157692zbvFTw','watermarkTransparency','channels','channel','textAlign','##Euforia\x20Mods','message','top','includes','fontColor','Dla\x20kogo:','attachment://portfolio.png','\x20Wystąpił\x20krytyczny\x20błąd:','getAttachment','bold','Portfolio\x20Mod','reaction4','buttonPosition','deferred','\x0a\x20\x20\x20\x20\x20\x20<div\x20style=\x22padding:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<tab-system>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tab\x20label=\x22Konfiguracja\x22\x20icon=\x22cogs\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22padding:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x20100%;\x20margin-bottom:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label>ID\x20Roli\x20z\x20Uprawnieniami\x20(zostaw\x20puste,\x20aby\x20wszyscy\x20mogli\x20używać)</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22requiredRoleID\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20placeholder=\x22Wklej\x20tutaj\x20ID\x20roli...\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x20100%;\x20margin-bottom:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label>ID\x20Kanału\x20do\x20Wysyłki\x20(zostaw\x20puste,\x20aby\x20wysyłać\x20na\x20obecnym\x20kanale)</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22targetChannelID\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20placeholder=\x22Wklej\x20tutaj\x20ID\x20kanału...\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2010px;\x20margin-bottom:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2060%;\x22><label>Tytuł\x20Embedu</label><input\x20id=\x22embedTitle\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20value=\x22PORTFOLIO\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2040%;\x22><label>Kolor\x20Embedu</label><input\x20id=\x22embedColor\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20value=\x22#ea29d1\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-bottom:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label>Opis\x20Embedu</label><textarea\x20id=\x22embedDesc\x22\x20class=\x22round\x22\x20rows=\x222\x22\x20style=\x22width:\x20100%;\x20resize:\x20vertical;\x22>Nowa\x20praca\x20już\x20wleciała!\x20Podoba\x20się?\x20Zostaw\x20reakcję!</textarea>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2050%;\x22><label>Pole\x20\x22Wykonane\x20przez\x22</label><input\x20id=\x22realizatorField\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20value=\x22${slashParams(\x27Wykonawca\x27)}\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2050%;\x22><label>Pole\x20\x22Dla\x20kogo\x22</label><input\x20id=\x22dlaKogoField\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20value=\x22${slashParams(\x27dlakogo\x27)}\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tab>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tab\x20label=\x22Styl\x20Tekstu\x22\x20icon=\x22font\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22padding:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x2013px;\x20margin-bottom:\x2015px;\x22>Główny\x20tekst\x20jest\x20pobierany\x20z\x20opcji\x20komendy\x20slash\x20o\x20nazwie\x20<b>tekst_grafiki</b>.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2010px;\x20margin-bottom:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22flex-grow:\x201;\x22><label>Czcionka</label><input\x20id=\x22fontPath\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20value=\x22fonts/proxima.otf\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2090px;\x22><label>Maks.\x20Rozmiar</label><input\x20id=\x22fontSize\x22\x20class=\x22round\x22\x20type=\x22number\x22\x20value=\x22180\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2090px;\x22><label>Kolor</label><input\x20id=\x22fontColor\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20value=\x22#FFFFFF\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-top:\x208px;\x20margin-bottom:\x2012px;\x22><label><b>Cień\x20dla\x20Tekstu</b></label></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2010px;\x20margin-bottom:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2025%;\x22><label>Kolor</label><input\x20id=\x22textShadowColor\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20value=\x22#000000\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2025%;\x22><label>Rozmycie</label><input\x20id=\x22textShadowBlur\x22\x20class=\x22round\x22\x20type=\x22number\x22\x20value=\x225\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2025%;\x22><label>Offset\x20X</label><input\x20id=\x22textShadowOffsetX\x22\x20class=\x22round\x22\x20type=\x22number\x22\x20value=\x222\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2025%;\x22><label>Offset\x20Y</label><input\x20id=\x22textShadowOffsetY\x22\x20class=\x22round\x22\x20type=\x22number\x22\x20value=\x222\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2010px;\x20margin-bottom:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2050%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label>Wyrównanie\x20Tekstu\x20w\x20Pionie</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22textVerticalAlign\x22\x20class=\x22round\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22top\x22\x20selected>Góra</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22bottom\x22>Dół</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2050%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label>URL\x20Obrazu\x20w\x20drugiej\x20wiadomości</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22secondMessageImageURL\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20value=\x22https://cdn.discordapp.com/attachments/1384134507980132412/1384134537495445554/evbanner.png?ex=686b087d&is=6869b6fd&hm=d8be9ecac60ff1daa1bd5e79a0986963a2afa4f7a9406c98f07e76e685cf8746&\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tab>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tab\x20label=\x22Wygląd\x20Grafiki\x22\x20icon=\x22image\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22padding:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-bottom:\x2015px;\x22><label><b>Warstwa\x20Ramki</b></label><input\x20id=\x22topLayerImageURL\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20value=\x22https://cdn.discordapp.com/attachments/1384134507980132412/1391433502746087514/fale.png?ex=686be0ee&is=686a8f6e&hm=4a28d7a91bb2ce6816364459287e664c0ffe35186ee5a71b17aea1a617d708e2&\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-bottom:\x2015px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2010px;\x20margin-top:\x208px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2050%;\x22><label>Skala\x20Grafiki\x20(%)</label><input\x20id=\x22mainImageScale\x22\x20class=\x22round\x22\x20type=\x22number\x22\x20value=\x2260\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2050%;\x22><label>Zaokrąglenie\x20(px)</label><input\x20id=\x22cornerRadius\x22\x20class=\x22round\x22\x20type=\x22number\x22\x20value=\x2250\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-top:\x208px;\x22><label><b>Cień\x20dla\x20Grafiki</b></label></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2010px;\x20margin-bottom:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2025%;\x22><label>Kolor</label><input\x20id=\x22shadowColor\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20value=\x22#000000\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2025%;\x22><label>Rozmycie</label><input\x20id=\x22shadowBlur\x22\x20class=\x22round\x22\x20type=\x22number\x22\x20value=\x2215\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2025%;\x22><label>Offset\x20X</label><input\x20id=\x22shadowOffsetX\x22\x20class=\x22round\x22\x20type=\x22number\x22\x20value=\x220\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2025%;\x22><label>Offset\x20Y</label><input\x20id=\x22shadowOffsetY\x22\x20class=\x22round\x22\x20type=\x22number\x22\x20value=\x2210\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2050%;\x22><label>Przezroczystość\x20Znaku\x20Wodnego\x20(%)</label><input\x20id=\x22watermarkTransparency\x22\x20class=\x22round\x22\x20type=\x22number\x22\x20value=\x2235\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div><label><b>Warstwa\x20Tła</b></label><input\x20id=\x22backgroundImageURL\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20value=\x22https://cdn.discordapp.com/attachments/1384134507980132412/1391228184007282820/tloportfolio.png?ex=686b21b6&is=6869d036&hm=62d9d0ca73b3bd1428f65ac1f425de097c36c73dcdafc7e118ce9c48347c69fb&\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tab>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tab\x20label=\x22Interakcje\x22\x20icon=\x22hand\x20pointer\x20outline\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22padding:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-bottom:\x2020px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x2013px;\x20margin-bottom:\x2010px;\x22>Wpisz\x20do\x20czterech\x20emoji,\x20którymi\x20bot\x20ma\x20zareagować\x20na\x20wiadomość.\x20Puste\x20pola\x20zostaną\x20zignorowane.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2025%;\x22><label>Reakcja\x20#1</label><input\x20id=\x22reaction1\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20value=\x22🔥\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2025%;\x22><label>Reakcja\x20#2</label><input\x20id=\x22reaction2\x22\x20class=\x22round\x22\x20type=\x22text\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2025%;\x22><label>Reakcja\x20#3</label><input\x20id=\x22reaction3\x22\x20class=\x22round\x22\x20type=\x22text\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2025%;\x22><label>Reakcja\x20#4</label><input\x20id=\x22reaction4\x22\x20class=\x22round\x22\x20type=\x22text\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<hr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-top:\x2020px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22font-size:\x2013px;\x20margin-bottom:\x2010px;\x22>Dodaj\x20przycisk\x20z\x20linkiem\x20do\x20wiadomości.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2010px;\x20margin-bottom:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2050%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label>Włącz\x20Przycisk</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22enableLinkButton\x22\x20class=\x22round\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22false\x22\x20selected>Nie</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22true\x22>Tak</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x2050%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label>Pozycja\x20Przycisku</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22buttonPosition\x22\x20class=\x22round\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22below\x22\x20selected>Pod\x20Embedem</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22above\x22>Nad\x20Embedem</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-bottom:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label>Etykieta\x20Przycisku</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22buttonLabel\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20value=\x22Zobacz\x20więcej\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label>URL\x20Linku\x20Przycisku</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22buttonLinkURL\x22\x20class=\x22round\x22\x20type=\x22text\x22\x20value=\x22https://cracko.lol\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tab>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</tab-system>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20','below','actions','watermark','push','setFooter','send','closePath','save','cornerRadius','25790hrSUNK','#000000','max','\x20Nie\x20udało\x20się\x20wysłać\x20drugiej\x20wiadomości:','cache','components','url','realizatorField','setTitle','textBaseline','status','has','fontPath','4432908wBEMFo','bottom','999522hvuczz','Nie\x20udało\x20się\x20załadować\x20obrazu\x20tła.\x20Błąd:\x20','above','iconURL','textShadowOffsetX','embedTitle','catch','secondMessageImageURL','toLocaleString','5636316fDRnIr','fonts/proxima.otf','Generuje\x20profesjonalną\x20grafikę\x20portfolio\x20z\x20przyciskami.','fill','reaction3','sharp','px\x20\x22CustomFont\x22,\x20sans-serif','Grafika\x20została\x20pomyślnie\x20wysłana.','bold\x20','canvas','Link','\x20•\x20','setDescription','2lNBvLr','10VpMgzd','reaction2','evalMessage','registerFont','options','restore','loadImage','#ea29d1','Zaawansowany\x20generator\x20grafik\x20portfolio\x20z\x20licznymi\x20opcjami\x20personalizacji.','setURL','buttonLabel','code','center','lineTo'];_0x5b20=function(){return _0xf4d413;};return _0x5b20();}const _0x402ff1=_0x47ad;(function(_0x241cd8,_0x201b09){const _0x547039=_0x47ad,_0x3b50df=_0x241cd8();while(!![]){try{const _0x51a4ea=-parseInt(_0x547039(0x1bc))/0x1*(-parseInt(_0x547039(0x19f))/0x2)+-parseInt(_0x547039(0x21a))/0x3+parseInt(_0x547039(0x1ee))/0x4+parseInt(_0x547039(0x1a0))/0x5*(-parseInt(_0x547039(0x218))/0x6)+-parseInt(_0x547039(0x1df))/0x7*(-parseInt(_0x547039(0x1b0))/0x8)+parseInt(_0x547039(0x1ea))/0x9*(parseInt(_0x547039(0x20b))/0xa)+-parseInt(_0x547039(0x1eb))/0xb*(parseInt(_0x547039(0x192))/0xc);if(_0x51a4ea===_0x201b09)break;else _0x3b50df['push'](_0x3b50df['shift']());}catch(_0x243bc0){_0x3b50df['push'](_0x3b50df['shift']());}}}(_0x5b20,0xf2300),module['exports']={'name':_0x402ff1(0x1fd),'displayName':'Portfolio\x20Mod\x20v8','section':_0x402ff1(0x1f3),'author':'euforia.44\x20(poprawki\x20i\x20feat.\x20by\x20AI)','version':'8.0.0','short_description':_0x402ff1(0x1a8),'subtitle'(_0x397220){const _0x719a1f=_0x402ff1;return _0x719a1f(0x194);},'fields':['requiredRoleID',_0x402ff1(0x1e4),_0x402ff1(0x21f),'embedDesc',_0x402ff1(0x1bd),_0x402ff1(0x212),'dlaKogoField',_0x402ff1(0x221),_0x402ff1(0x217),_0x402ff1(0x1db),_0x402ff1(0x1f7),'textVerticalAlign',_0x402ff1(0x1e3),_0x402ff1(0x1b6),_0x402ff1(0x21e),_0x402ff1(0x1d1),_0x402ff1(0x1b3),_0x402ff1(0x1e1),_0x402ff1(0x20a),_0x402ff1(0x1bb),_0x402ff1(0x1de),_0x402ff1(0x1ba),_0x402ff1(0x1ec),'backgroundImageURL',_0x402ff1(0x1ef),_0x402ff1(0x1d8),_0x402ff1(0x1a1),_0x402ff1(0x196),_0x402ff1(0x1fe),_0x402ff1(0x1ae),_0x402ff1(0x1aa),_0x402ff1(0x1e0),_0x402ff1(0x1ff)],'html'(_0x48480b,_0x41b8b7){const _0x818309=_0x402ff1;return _0x818309(0x201);},async 'action'(_0xa3c548){const _0x386554=_0x402ff1,{AttachmentBuilder:_0x707b21,EmbedBuilder:_0x46a771,MessageFlags:_0x2942a6,ActionRowBuilder:_0x4d1de0,ButtonBuilder:_0x14a67e,ButtonStyle:_0x5f1373}=require(_0x386554(0x1c7)),_0x2fd656=require(_0x386554(0x19b)),_0x1092af=require(_0x386554(0x197)),_0x2e5a2c=require('path'),_0x5527ec=_0xa3c548[_0x386554(0x203)][_0xa3c548[_0x386554(0x1d6)]],_0x332218=_0x2b98d1=>this['evalMessage'](_0x5527ec[_0x2b98d1],_0xa3c548),{interaction:_0x257681}=_0xa3c548,_0x3d196f=_0x386554(0x1c2),_0x20fd77={'mainImageScale':0x3c,'cornerRadius':0x32,'shadowColor':_0x386554(0x20c),'shadowBlur':0xf,'shadowOffsetX':0x0,'shadowOffsetY':0xa,'fontPath':_0x386554(0x193),'fontSize':0xb4,'fontColor':_0x386554(0x1dc),'textVerticalAlign':_0x386554(0x1f5),'watermarkTransparency':0x23,'textShadowColor':_0x386554(0x20c),'textShadowBlur':0x0,'textShadowOffsetX':0x0,'textShadowOffsetY':0x0},_0x1e1a0b=(_0x2c4256,_0xcb498f)=>{const _0x1331c5=parseInt(_0x2c4256,0xa);return isNaN(_0x1331c5)?_0xcb498f:_0x1331c5;},_0x4a2b30=(_0x59da85,_0x3fd01c,_0x1924e8,_0x5e6c97,_0x4c5624)=>{const _0x485531=_0x386554;let _0x2afddc=_0x5e6c97;do{_0x59da85['font']=_0x1924e8+'\x20'+_0x2afddc+_0x485531(0x198);if(_0x59da85[_0x485531(0x1b1)](_0x3fd01c)[_0x485531(0x1b4)]<=_0x4c5624)return _0x2afddc;_0x2afddc-=0x5;}while(_0x2afddc>0xa);return _0x2afddc;},_0x5e0603=async(_0x11f7de,_0x120f10=0x7530)=>{const _0x1300c3=_0x386554,_0x406097=new AbortController(),_0x179e1e=setTimeout(()=>_0x406097[_0x1300c3(0x1da)](),_0x120f10);try{const _0x2b5e18=await fetch(_0x11f7de,{'signal':_0x406097['signal']});if(!_0x2b5e18['ok'])throw new Error(_0x1300c3(0x1cc)+_0x2b5e18[_0x1300c3(0x215)]);return _0x2b5e18[_0x1300c3(0x1c6)]();}finally{clearTimeout(_0x179e1e);}};if(_0x257681&&typeof _0x257681['deferReply']===_0x386554(0x1d0)&&!_0x257681[_0x386554(0x200)])try{await _0x257681[_0x386554(0x1b7)]({'flags':_0x2942a6[_0x386554(0x1c0)]});}catch(_0x2731b3){return console[_0x386554(0x1b5)](_0x3d196f+'\x20Nie\x20udało\x20się\x20odroczyć\x20odpowiedzi:',_0x2731b3);}const _0x10bee3=_0x332218('requiredRoleID');if(_0x10bee3&&_0x257681[_0x386554(0x1e8)]&&!_0x257681[_0x386554(0x1e8)]['roles'][_0x386554(0x20f)][_0x386554(0x216)](_0x10bee3))return await _0x257681['editReply']({'content':'Nie\x20masz\x20uprawnień\x20do\x20użycia\x20tej\x20komendy.'})[_0x386554(0x220)](_0x2267e1=>console[_0x386554(0x1b5)](_0x2267e1)),this[_0x386554(0x1dd)](_0xa3c548);try{const _0x1dfc8f=0x780,_0x46b550=0x438,_0x2c4471=_0x2fd656[_0x386554(0x1e9)](_0x1dfc8f,_0x46b550),_0x4064e3=_0x2c4471['getContext']('2d'),_0x4931f3=_0x332218(_0x386554(0x1af));if(_0x4931f3)try{const _0x11cfb7=await _0x2fd656[_0x386554(0x1a6)](_0x4931f3);_0x4064e3['drawImage'](_0x11cfb7,0x0,0x0,_0x1dfc8f,_0x46b550);}catch(_0x3d67d1){throw new Error(_0x386554(0x21b)+_0x3d67d1['message']);}const _0xaae82b=_0x257681[_0x386554(0x1a4)][_0x386554(0x1fb)]('zalacznik');let _0x103e5d=_0x46b550/0x2,_0x32ad5a=0x0;if(_0xaae82b?.[_0x386554(0x211)])try{const _0x822afb=await _0x5e0603(_0xaae82b[_0x386554(0x211)]),_0x47f3a6=await _0x1092af(Buffer[_0x386554(0x1c8)](_0x822afb))['toFormat'](_0x386554(0x1d9))['toBuffer'](),_0xfe079=await _0x2fd656['loadImage'](_0x47f3a6),_0x4552b4=_0x1e1a0b(_0x332218(_0x386554(0x1e1)),_0x20fd77[_0x386554(0x1e1)])/0x64,_0x3d8f4b=_0x1e1a0b(_0x332218(_0x386554(0x20a)),_0x20fd77[_0x386554(0x20a)]),_0x28e9ff=_0x1dfc8f*Math[_0x386554(0x20d)](0.1,Math['min'](0x1,_0x4552b4)),_0x199b6c=_0x46b550*Math[_0x386554(0x20d)](0.1,Math['min'](0x1,_0x4552b4)),_0x5ef881=_0xfe079['width']/_0xfe079['height'];let _0x4498f8=_0x5ef881>_0x28e9ff/_0x199b6c?_0x28e9ff:_0x199b6c*_0x5ef881,_0x56df77=_0x5ef881>_0x28e9ff/_0x199b6c?_0x28e9ff/_0x5ef881:_0x199b6c;const _0x223966=(_0x1dfc8f-_0x4498f8)/0x2,_0x23a651=(_0x46b550-_0x56df77)/0x2;_0x103e5d=_0x23a651,_0x32ad5a=_0x56df77,_0x4064e3[_0x386554(0x209)](),_0x4064e3[_0x386554(0x1e5)](),_0x4064e3['moveTo'](_0x223966+_0x3d8f4b,_0x23a651),_0x4064e3[_0x386554(0x1ad)](_0x223966+_0x4498f8-_0x3d8f4b,_0x23a651),_0x4064e3[_0x386554(0x1c4)](_0x223966+_0x4498f8,_0x23a651,_0x223966+_0x4498f8,_0x23a651+_0x3d8f4b,_0x3d8f4b),_0x4064e3[_0x386554(0x1ad)](_0x223966+_0x4498f8,_0x23a651+_0x56df77-_0x3d8f4b),_0x4064e3['arcTo'](_0x223966+_0x4498f8,_0x23a651+_0x56df77,_0x223966+_0x4498f8-_0x3d8f4b,_0x23a651+_0x56df77,_0x3d8f4b),_0x4064e3['lineTo'](_0x223966+_0x3d8f4b,_0x23a651+_0x56df77),_0x4064e3['arcTo'](_0x223966,_0x23a651+_0x56df77,_0x223966,_0x23a651+_0x56df77-_0x3d8f4b,_0x3d8f4b),_0x4064e3[_0x386554(0x1ad)](_0x223966,_0x23a651+_0x3d8f4b),_0x4064e3['arcTo'](_0x223966,_0x23a651,_0x223966+_0x3d8f4b,_0x23a651,_0x3d8f4b),_0x4064e3[_0x386554(0x208)]();const _0x99d928=_0x1e1a0b(_0x332218(_0x386554(0x1de)),_0x20fd77[_0x386554(0x1de)]);_0x99d928>0x0&&(_0x4064e3[_0x386554(0x1bb)]=_0x332218('shadowColor')||_0x20fd77[_0x386554(0x1bb)],_0x4064e3[_0x386554(0x1de)]=_0x99d928,_0x4064e3[_0x386554(0x1ba)]=_0x1e1a0b(_0x332218(_0x386554(0x1ba)),_0x20fd77[_0x386554(0x1ba)]),_0x4064e3['shadowOffsetY']=_0x1e1a0b(_0x332218(_0x386554(0x1ec)),_0x20fd77['shadowOffsetY']),_0x4064e3[_0x386554(0x1b9)]='rgba(0,0,0,0.01)',_0x4064e3[_0x386554(0x195)]()),_0x4064e3['clip'](),_0x4064e3[_0x386554(0x1b2)](_0xfe079,_0x223966,_0x23a651,_0x4498f8,_0x56df77),_0x4064e3[_0x386554(0x1a5)]();}catch(_0x3ae6ec){throw new Error('Nie\x20udało\x20się\x20załadować\x20załącznika.\x20Błąd:\x20'+_0x3ae6ec[_0x386554(0x1f4)]);}const _0x223ee5=_0x332218(_0x386554(0x217))||_0x20fd77[_0x386554(0x217)],_0x4b0bee=process['cwd'](),_0x4f60ac=_0x2e5a2c[_0x386554(0x1ce)](_0x4b0bee,_0x223ee5);if(!_0x4f60ac['startsWith'](_0x4b0bee))console['error'](_0x3d196f+'\x20Niedozwolona\x20ścieżka\x20czcionki:\x20'+_0x223ee5);else try{const _0x4e42af=_0x386554(0x1c3);_0x2fd656[_0x386554(0x1a3)](_0x4f60ac,{'family':_0x4e42af});const _0x52e8ce=this[_0x386554(0x1a2)]('${slashParams(\x27tekst_grafiki\x27)}',_0xa3c548);if(_0x52e8ce){_0x4064e3[_0x386554(0x209)]();const _0x18a7ec=_0x1e1a0b(_0x332218(_0x386554(0x1b6)),_0x20fd77[_0x386554(0x1b6)]);_0x18a7ec>0x0&&(_0x4064e3[_0x386554(0x1bb)]=_0x332218(_0x386554(0x1e3))||_0x20fd77[_0x386554(0x1e3)],_0x4064e3[_0x386554(0x1de)]=_0x18a7ec,_0x4064e3[_0x386554(0x1ba)]=_0x1e1a0b(_0x332218('textShadowOffsetX'),_0x20fd77[_0x386554(0x21e)]),_0x4064e3[_0x386554(0x1ec)]=_0x1e1a0b(_0x332218(_0x386554(0x1d1)),_0x20fd77['textShadowOffsetY']));const _0x529dd5=_0x1e1a0b(_0x332218(_0x386554(0x1db)),_0x20fd77[_0x386554(0x1db)]),_0x4591d8=_0x4a2b30(_0x4064e3,_0x52e8ce,_0x386554(0x1fc),_0x529dd5,_0x1dfc8f*0.9);_0x4064e3[_0x386554(0x1be)]=_0x386554(0x19a)+_0x4591d8+_0x386554(0x1ca)+_0x4e42af+'\x22,\x20sans-serif',_0x4064e3[_0x386554(0x1b9)]=_0x332218('fontColor')||_0x20fd77['fontColor'],_0x4064e3[_0x386554(0x1f2)]=_0x386554(0x1ac),_0x4064e3['textBaseline']='middle';const _0x2a2b38=_0x332218('textVerticalAlign')||_0x20fd77[_0x386554(0x1d4)],_0x1878c8=_0x2a2b38===_0x386554(0x219)?_0x103e5d+_0x32ad5a+(_0x46b550-(_0x103e5d+_0x32ad5a))/0x2:_0x103e5d/0x2;_0x4064e3['fillText'](_0x52e8ce,_0x1dfc8f/0x2,_0x1878c8),_0x4064e3[_0x386554(0x1a5)]();}const _0x1dcd26=_0x332218('topLayerImageURL');if(_0x1dcd26)try{const _0x3b747e=await _0x2fd656[_0x386554(0x1a6)](_0x1dcd26);_0x4064e3[_0x386554(0x1b2)](_0x3b747e,0x0,0x0,_0x1dfc8f,_0x46b550);}catch(_0x28ad36){throw new Error('Nie\x20udało\x20się\x20załadować\x20obrazu\x20ramki.\x20Błąd:\x20'+_0x28ad36[_0x386554(0x1f4)]);}let _0x58dd0a;try{_0x58dd0a=_0x257681[_0x386554(0x1a4)][_0x386554(0x1c9)](_0x386554(0x204));}catch(_0x3cca42){}if(_0x58dd0a){const _0xd9f5a4=_0x1e1a0b(_0x332218(_0x386554(0x1ef)),_0x20fd77[_0x386554(0x1ef)]);_0x4064e3[_0x386554(0x1cd)]=Math[_0x386554(0x20d)](0x0,Math['min'](0x64,_0xd9f5a4))/0x64;const _0x1e9a5c=_0x4a2b30(_0x4064e3,_0x58dd0a,_0x386554(0x1fc),0x1e,_0x1dfc8f*0.4);_0x4064e3[_0x386554(0x1be)]=_0x386554(0x19a)+_0x1e9a5c+_0x386554(0x1ca)+_0x4e42af+'\x22,\x20sans-serif',_0x4064e3[_0x386554(0x1b9)]=_0x386554(0x1dc),_0x4064e3[_0x386554(0x1f2)]=_0x386554(0x1e2),_0x4064e3[_0x386554(0x214)]=_0x386554(0x219),_0x4064e3[_0x386554(0x1d3)](_0x58dd0a,_0x1dfc8f-0x14,_0x46b550-0x14),_0x4064e3[_0x386554(0x1cd)]=0x1;}}catch(_0x4e6252){throw new Error('Błąd\x20operacji\x20na\x20tekście\x20lub\x20czcionce.\x20Błąd:\x20'+_0x4e6252[_0x386554(0x1f4)]);}const _0x373b30=new _0x707b21(_0x2c4471['toBuffer'](_0x386554(0x1c5)),{'name':_0x386554(0x1b8)}),{guild:_0x2b9a33}=_0x257681,_0x5e7178=new _0x46a771()['setColor'](_0x332218(_0x386554(0x1bd))||_0x386554(0x1a7))['setImage'](_0x386554(0x1f9))[_0x386554(0x213)](_0x332218(_0x386554(0x21f))||null)[_0x386554(0x19e)](_0x332218(_0x386554(0x1d7))||null)['setThumbnail'](_0x2b9a33[_0x386554(0x21d)]({'extension':_0x386554(0x1d9),'size':0x80}))[_0x386554(0x206)]({'text':_0x2b9a33['name']+_0x386554(0x19d)+new Date()[_0x386554(0x222)]('pl-PL',{'timeZone':'Europe/Warsaw'})+_0x386554(0x1d2),'iconURL':_0x2b9a33[_0x386554(0x21d)]()});(_0x332218(_0x386554(0x212))||_0x332218(_0x386554(0x1d5)))&&_0x5e7178['addFields']({'name':'Wykonane\x20przez:','value':_0x332218(_0x386554(0x212))||'\x20','inline':!![]},{'name':_0x386554(0x1f8),'value':_0x332218(_0x386554(0x1d5))||'\x20','inline':!![]});const _0x4e2b10=_0x332218('targetChannelID'),_0xb152cc=_0x4e2b10?await _0x2b9a33[_0x386554(0x1f0)][_0x386554(0x1c1)](_0x4e2b10)[_0x386554(0x220)](()=>_0x257681[_0x386554(0x1f1)]):_0x257681[_0x386554(0x1f1)],_0x123d3f={'embeds':[_0x5e7178],'files':[_0x373b30],'components':[]},_0xcbfafa=_0x332218(_0x386554(0x1ae))==='true';if(_0xcbfafa){const _0x3c0d45=_0x332218('buttonLabel')||'Zobacz\x20więcej',_0x519290=_0x332218(_0x386554(0x1e0)),_0x25e3b6=_0x332218('buttonPosition')||_0x386554(0x202);if(_0x519290){const _0x317c66=new _0x14a67e()[_0x386554(0x1bf)](_0x3c0d45)[_0x386554(0x1a9)](_0x519290)[_0x386554(0x1e6)](_0x5f1373[_0x386554(0x19c)]),_0x4e12da=new _0x4d1de0()['addComponents'](_0x317c66);_0x25e3b6===_0x386554(0x21c)?await _0xb152cc[_0x386554(0x207)]({'components':[_0x4e12da]}):_0x123d3f[_0x386554(0x210)][_0x386554(0x205)](_0x4e12da);}}const _0x5da0e4=await _0xb152cc[_0x386554(0x207)](_0x123d3f);await _0x257681['editReply']({'content':_0x386554(0x199),'embeds':[],'files':[]});if(_0x5da0e4){const _0x3f9140=[_0x332218(_0x386554(0x1d8)),_0x332218(_0x386554(0x1a1)),_0x332218(_0x386554(0x196)),_0x332218(_0x386554(0x1fe))];for(const _0x351cfd of _0x3f9140){_0x351cfd&&await _0x5da0e4['react'](_0x351cfd)[_0x386554(0x220)](_0x26cf80=>console[_0x386554(0x1b5)](_0x3d196f+_0x386554(0x1ed)+_0x351cfd+'\x22:',_0x26cf80));}const _0x1d22c1=_0x332218('secondMessageImageURL');if(_0x1d22c1)_0x5da0e4[_0x386554(0x1f1)][_0x386554(0x207)]({'content':_0x1d22c1})['catch'](_0x480ff1=>console[_0x386554(0x1b5)](_0x3d196f+_0x386554(0x20e),_0x480ff1));}}catch(_0x4449ad){console[_0x386554(0x1b5)](_0x3d196f+_0x386554(0x1fa),_0x4449ad);let _0x51a3c8=_0x386554(0x1cf);(_0x4449ad[_0x386554(0x1f4)][_0x386554(0x1f6)](_0x386554(0x1cb))||_0x4449ad[_0x386554(0x1ab)]===_0x386554(0x1e7))&&(_0x51a3c8='Błąd\x20sieciowy:\x20Nie\x20udało\x20się\x20pobrać\x20jednego\x20z\x20obrazów.\x20Sprawdź\x20swoje\x20połączenie.'),await _0x257681['editReply']({'content':_0x51a3c8,'embeds':[],'files':[]})[_0x386554(0x220)](()=>{});}finally{this[_0x386554(0x1dd)](_0xa3c548);}},'mod'(){}});
+module.exports = {
+  name: "Portfolio Mod v8",
+  displayName: "Portfolio Mod v8",
+  section: "##Euforia Mods",
+  author: "euforia.44 (poprawki i feat. by AI)",
+  version: "9.0.0", // Final Version
+  short_description: "Generuje profesjonalną grafikę portfolio z licznymi opcjami personalizacji.",
+  subtitle(data) {
+    return "Zaawansowany generator grafik portfolio z licznymi opcjami personalizacji.";
+  },
+  fields: [
+    "targetChannelID", "embedTitle", "embedDesc", "embedColor", "realizatorField", "dlaKogoField",
+    "fontPath", "fontSize", "fontColor", "textShadowColor", "textVerticalAlign", "textShadowBlur",
+    "textShadowOffsetX", "textShadowOffsetY", "mainImageScale", "cornerRadius", "shadowColor",
+    "shadowBlur", "shadowOffsetX", "shadowOffsetY", "watermarkTransparency", "watermark",
+    "topLayerImageURL", "backgroundImageURL", "reaction1", "reaction2", "reaction3", "reaction4",
+    "enableLinkButton", "buttonPosition", "buttonLabel", "buttonLinkURL", "secondMessageImageURL",
+  ],
+
+  html(isEvent, data) {
+    return `
+      <div style="padding: 10px;">
+        <div style="background: rgba(255,255,255,0.1); padding: 8px; border-radius: 4px; margin-bottom: 10px;">
+          <b>Ważne:</b> Jeśli obrazy tła lub ramki się nie ładują (błąd 404 w konsoli), oznacza to, że linki z Discorda wygasły. Wklej w odpowiednie pola nowe, stałe linki.
+        </div>
+        <tab-system>
+          <tab label="Konfiguracja" icon="cogs">
+            <div style="padding: 10px;">
+              <div style="width: 100%; margin-bottom: 12px;">
+                <label>ID Kanału do Wysyłki (zostaw puste, aby wysyłać na obecnym kanale)</label>
+                <input id="targetChannelID" class="round" type="text" placeholder="Wklej tutaj ID kanału...">
+              </div>
+              <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                <div style="width: 60%;"><label>Tytuł Embedu</label><input id="embedTitle" class="round" type="text" value="PORTFOLIO"></div>
+                <div style="width: 40%;"><label>Kolor Embedu</label><input id="embedColor" class="round" type="text" value="#ea29d1"></div>
+              </div>
+              <div style="margin-bottom: 12px;">
+                <label>Opis Embedu</label><textarea id="embedDesc" class="round" rows="2" style="width: 100%; resize: vertical;">Nowa praca już wleciała! Podoba się? Zostaw reakcję!</textarea>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <div style="width: 50%;"><label>Pole "Wykonane przez"</label><input id="realizatorField" class="round" type="text" value="\${slashParams('Wykonawca')}"></div>
+                <div style="width: 50%;"><label>Pole "Dla kogo"</label><input id="dlaKogoField" class="round" type="text" value="\${slashParams('dlakogo')}"></div>
+              </div>
+            </div>
+          </tab>
+
+          <tab label="Styl Tekstu" icon="font">
+            <div style="padding: 10px;">
+              <p style="font-size: 13px; margin-bottom: 15px;">Główny tekst jest pobierany z opcji komendy slash o nazwie <b>tekst_grafiki</b>.</p>
+              <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                <div style="flex-grow: 1;"><label>Czcionka</label><input id="fontPath" class="round" type="text" value="fonts/proxima.otf"></div>
+                <div style="width: 90px;"><label>Maks. Rozmiar</label><input id="fontSize" class="round" type="number" value="180"></div>
+                <div style="width: 90px;"><label>Kolor</label><input id="fontColor" class="round" type="text" value="#FFFFFF"></div>
+              </div>
+              <div style="margin-top: 8px; margin-bottom: 12px;"><label><b>Cień dla Tekstu</b></label></div>
+              <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                <div style="width: 25%;"><label>Kolor</label><input id="textShadowColor" class="round" type="text" value="#000000"></div>
+                <div style="width: 25%;"><label>Rozmycie</label><input id="textShadowBlur" class="round" type="number" value="5"></div>
+                <div style="width: 25%;"><label>Offset X</label><input id="textShadowOffsetX" class="round" type="number" value="2"></div>
+                <div style="width: 25%;"><label>Offset Y</label><input id="textShadowOffsetY" class="round" type="number" value="2"></div>
+              </div>
+              <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                 <div style="width: 50%;">
+                    <label>Wyrównanie Tekstu w Pionie</label>
+                    <select id="textVerticalAlign" class="round">
+                        <option value="top" selected>Góra</option>
+                        <option value="bottom">Dół</option>
+                    </select>
+                </div>
+                <div style="width: 50%;">
+                  <label>Znak wodny (pobierany z opcji "watermark", opcjonalny)</label>
+                  <input id="watermark" class="round" type="text" value="\${slashParams('watermark')}">
+                </div>
+              </div>
+            </div>
+          </tab>
+
+          <tab label="Wygląd Grafiki" icon="image">
+            <div style="padding: 10px;">
+              <div style="margin-bottom: 15px;"><label><b>Warstwa Ramki</b></label><input id="topLayerImageURL" class="round" type="text" value="https://media.discordapp.net/attachments/1113880193892417646/1113912779937095830/fale.png"></div>
+              <div style="margin-bottom: 15px;">
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                  <div style="width: 50%;"><label>Skala Grafiki (%)</label><input id="mainImageScale" class="round" type="number" value="60"></div>
+                  <div style="width: 50%;"><label>Zaokrąglenie (px)</label><input id="cornerRadius" class="round" type="number" value="50"></div>
+                </div>
+                <div style="margin-top: 8px;"><label><b>Cień dla Grafiki</b></label></div>
+                <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                  <div style="width: 25%;"><label>Kolor</label><input id="shadowColor" class="round" type="text" value="#000000"></div>
+                  <div style="width: 25%;"><label>Rozmycie</label><input id="shadowBlur" class="round" type="number" value="15"></div>
+                  <div style="width: 25%;"><label>Offset X</label><input id="shadowOffsetX" class="round" type="number" value="0"></div>
+                  <div style="width: 25%;"><label>Offset Y</label><input id="shadowOffsetY" class="round" type="number" value="10"></div>
+                </div>
+                <div style="width: 50%;"><label>Przezroczystość Znaku Wodnego (%)</label><input id="watermarkTransparency" class="round" type="number" value="35"></div>
+              </div>
+              <div><label><b>Warstwa Tła</b></label><input id="backgroundImageURL" class="round" type="text" value="https://media.discordapp.net/attachments/1113880193892417646/1113912780289413210/tloportfolio.png"></div>
+            </div>
+          </tab>
+
+          <tab label="Interakcje" icon="hand pointer outline">
+            <div style="padding: 10px;">
+              <div style="margin-bottom: 20px;">
+                <p style="font-size: 13px; margin-bottom: 10px;">Wpisz do czterech emoji, którymi bot ma zareagować na wiadomość. Puste pola zostaną zignorowane.</p>
+                <div style="display: flex; gap: 10px;">
+                  <div style="width: 25%;"><label>Reakcja #1</label><input id="reaction1" class="round" type="text" value="🔥"></div>
+                  <div style="width: 25%;"><label>Reakcja #2</label><input id="reaction2" class="round" type="text"></div>
+                  <div style="width: 25%;"><label>Reakcja #3</label><input id="reaction3" class="round" type="text"></div>
+                  <div style="width: 25%;"><label>Reakcja #4</label><input id="reaction4" class="round" type="text"></div>
+                </div>
+              </div>
+              <hr>
+              <div style="margin-top: 20px;">
+                <p style="font-size: 13px; margin-bottom: 10px;">Dodaj przycisk z linkiem do wiadomości.</p>
+                <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                  <div style="width: 50%;">
+                    <label>Włącz Przycisk</label>
+                    <select id="enableLinkButton" class="round">
+                      <option value="false" selected>Nie</option>
+                      <option value="true">Tak</option>
+                    </select>
+                  </div>
+                  <div style="width: 50%;">
+                    <label>Pozycja Przycisku</label>
+                    <select id="buttonPosition" class="round">
+                      <option value="below" selected>Pod Embedem</option>
+                      <option value="above">Nad Embedem</option>
+                    </select>
+                  </div>
+                </div>
+                <div style="margin-bottom: 12px;">
+                  <label>Etykieta Przycisku</label>
+                  <input id="buttonLabel" class="round" type="text" value="Zobacz więcej">
+                </div>
+                <div>
+                  <label>URL Linku Przycisku</label>
+                  <input id="buttonLinkURL" class="round" type="text" value="https://cracko.lol">
+                </div>
+              </div>
+              <div style="margin-top: 12px;">
+                  <label>URL Obrazu w drugiej wiadomości</label>
+                  <input id="secondMessageImageURL" class="round" type="text" value="https://media.discordapp.net/attachments/1113880193892417646/1113880228308258816/evbanner.png">
+              </div>
+            </div>
+          </tab>
+        </tab-system>
+      </div>
+    `;
+  },
+
+  async action(cache) {
+    const {
+      AttachmentBuilder,
+      EmbedBuilder,
+      ActionRowBuilder,
+      ButtonBuilder,
+      ButtonStyle,
+      MessageFlags,
+    } = require("discord.js");
+    const {
+      createCanvas,
+      loadImage,
+      registerFont
+    } = require("canvas");
+    const path = require("path");
+    const {
+      interaction
+    } = cache;
+    const MOD_NAME = "[Portfolio Mod]";
+
+    const getData = (fieldName) => {
+        const actionData = cache.actions[cache.index];
+        return this.evalMessage(actionData[fieldName], cache);
+    };
+
+    async function loadImageFromUrl(url) {
+        if (!url) return null;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`Server responded with status ${response.status}`);
+            const buffer = Buffer.from(await response.arrayBuffer());
+            return await loadImage(buffer);
+        } catch (error) {
+            console.error(`${MOD_NAME} Failed to load image from ${url}:`, error);
+            return null;
+        }
+    }
+
+    if (!interaction || !interaction.deferReply) {
+      console.error(`${MOD_NAME} Interaction object is missing or invalid.`);
+      return this.callNextAction(cache);
+    }
+
+    try {
+      if (!interaction.deferred && !interaction.replied) {
+        await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+      }
+    } catch (e) {
+      console.error(`${MOD_NAME} Failed to defer reply:`, e);
+      return this.callNextAction(cache);
+    }
+
+    try {
+      await interaction.editReply({ content: "Twoje polecenie zostało przyjęte. Generowanie grafiki...", flags: MessageFlags.Ephemeral });
+
+      const CANVAS_WIDTH = 1920;
+      const CANVAS_HEIGHT = 1080;
+      const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+      const ctx = canvas.getContext("2d");
+
+      const defaults = {
+        mainImageScale: 60, cornerRadius: 50, shadowColor: "#000000", shadowBlur: 15,
+        shadowOffsetX: 0, shadowOffsetY: 10, fontPath: "fonts/proxima.otf", fontSize: 180,
+        fontColor: "#FFFFFF", textVerticalAlign: "top", watermarkTransparency: 35,
+        textShadowColor: "#000000", textShadowBlur: 5, textShadowOffsetX: 2, textShadowOffsetY: 2,
+      };
+
+      const parseNumber = (value, fallback) => {
+        const num = parseInt(value, 10);
+        return isNaN(num) ? fallback : num;
+      };
+
+      const backgroundImage = await loadImageFromUrl(getData("backgroundImageURL"));
+      if (backgroundImage) {
+        ctx.drawImage(backgroundImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      }
+
+      const attachment = interaction.options.getAttachment("zalacznik");
+      let imageCenterY = CANVAS_HEIGHT / 2, imageHeight = 0;
+
+      if (attachment && attachment.url) {
+        const mainImage = await loadImageFromUrl(attachment.url);
+        if (mainImage) {
+            const mainImageScale = parseNumber(getData("mainImageScale"), defaults.mainImageScale) / 100;
+            const cornerRadius = parseNumber(getData("cornerRadius"), defaults.cornerRadius);
+            const aspectRatio = mainImage.width / mainImage.height;
+            let drawWidth = CANVAS_WIDTH * mainImageScale;
+            let drawHeight = drawWidth / aspectRatio;
+            if (drawHeight > CANVAS_HEIGHT * mainImageScale) {
+                drawHeight = CANVAS_HEIGHT * mainImageScale;
+                drawWidth = drawHeight * aspectRatio;
+            }
+            const x = (CANVAS_WIDTH - drawWidth) / 2;
+            const y = (CANVAS_HEIGHT - drawHeight) / 2;
+            imageCenterY = y; imageHeight = drawHeight;
+            ctx.save();
+            const shadowBlur = parseNumber(getData("shadowBlur"), defaults.shadowBlur);
+            if (shadowBlur > 0) {
+                ctx.shadowColor = getData("shadowColor") || defaults.shadowColor;
+                ctx.shadowBlur = shadowBlur;
+                ctx.shadowOffsetX = parseNumber(getData("shadowOffsetX"), defaults.shadowOffsetX);
+                ctx.shadowOffsetY = parseNumber(getData("shadowOffsetY"), defaults.shadowOffsetY);
+            }
+            ctx.beginPath();
+            ctx.moveTo(x + cornerRadius, y);
+            ctx.arcTo(x + drawWidth, y, x + drawWidth, y + cornerRadius, cornerRadius);
+            ctx.arcTo(x + drawWidth, y + drawHeight, x + drawWidth - cornerRadius, y + drawHeight, cornerRadius);
+            ctx.arcTo(x, y + drawHeight, x, y + drawHeight - cornerRadius, cornerRadius);
+            ctx.arcTo(x, y, x + cornerRadius, y, cornerRadius);
+            ctx.closePath();
+            ctx.clip();
+            ctx.drawImage(mainImage, x, y, drawWidth, drawHeight);
+            ctx.restore();
+        }
+      }
+
+      const fontPath = getData("fontPath") || defaults.fontPath;
+      const FONT_FAMILY = "CustomFont";
+      try {
+        const resolvedFontPath = path.resolve(process.cwd(), fontPath);
+        registerFont(resolvedFontPath, { family: FONT_FAMILY });
+
+        const mainText = this.evalMessage("\${slashParams('tekst_grafiki')}", cache);
+        if (mainText) {
+          ctx.save();
+          const textShadowBlur = parseNumber(getData("textShadowBlur"), defaults.textShadowBlur);
+          if (textShadowBlur > 0) {
+            ctx.shadowColor = getData("textShadowColor") || defaults.textShadowColor;
+            ctx.shadowBlur = textShadowBlur;
+            ctx.shadowOffsetX = parseNumber(getData("textShadowOffsetX"), defaults.textShadowOffsetX);
+            ctx.shadowOffsetY = parseNumber(getData("textShadowOffsetY"), defaults.textShadowOffsetY);
+          }
+          let fontSize = parseNumber(getData("fontSize"), defaults.fontSize);
+          const maxTextWidth = CANVAS_WIDTH * 0.9;
+          do {
+            ctx.font = `bold ${fontSize}px "${FONT_FAMILY}", sans-serif`;
+            if (ctx.measureText(mainText).width <= maxTextWidth) break;
+            fontSize -= 5;
+          } while (fontSize > 10);
+          ctx.fillStyle = getData("fontColor") || defaults.fontColor;
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          const verticalAlign = getData("textVerticalAlign") || defaults.textVerticalAlign;
+          const textY = verticalAlign === "bottom" ? imageCenterY + imageHeight + (CANVAS_HEIGHT - (imageCenterY + imageHeight)) / 2 : imageCenterY / 2;
+          ctx.fillText(mainText, CANVAS_WIDTH / 2, textY);
+          ctx.restore();
+        }
+
+        const watermarkText = getData("watermark");
+        if (watermarkText) {
+          const transparency = parseNumber(getData("watermarkTransparency"), defaults.watermarkTransparency);
+          ctx.globalAlpha = Math.max(0, Math.min(100, transparency)) / 100;
+          ctx.font = `bold 30px "${FONT_FAMILY}", sans-serif`;
+          ctx.fillStyle = "#FFFFFF";
+          ctx.textAlign = "right";
+          ctx.textBaseline = "bottom";
+          ctx.fillText(watermarkText, CANVAS_WIDTH - 20, CANVAS_HEIGHT - 20);
+          ctx.globalAlpha = 1.0;
+        }
+      } catch (err) {
+        console.error(`${MOD_NAME} Błąd operacji na tekście lub czcionce:`, err);
+      }
+
+      const topLayerImage = await loadImageFromUrl(getData("topLayerImageURL"));
+      if (topLayerImage) {
+        ctx.drawImage(topLayerImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      }
+
+      const finalAttachment = new AttachmentBuilder(canvas.toBuffer("image/png"), { name: "portfolio.png" });
+      const { guild } = interaction;
+
+      const embed = new EmbedBuilder()
+        .setColor(getData("embedColor") || "#ea29d1").setTitle(getData("embedTitle") || null)
+        .setDescription(getData("embedDesc") || null).setImage("attachment://portfolio.png")
+        .setThumbnail(guild.iconURL({ extension: "png", size: 128 }))
+        .setFooter({ text: `${guild.name} • dc.euforia.fun`, iconURL: guild.iconURL() });
+      const realizatorField = getData("realizatorField");
+      const dlaKogoField = getData("dlaKogoField");
+      if (realizatorField || dlaKogoField) {
+        embed.addFields(
+            { name: "Wykonane przez:", value: realizatorField || " ", inline: true },
+            { name: "Dla kogo:", value: dlaKogoField || " ", inline: true }
+        );
+      }
+      
+      const buttonRow = new ActionRowBuilder();
+      if (getData("enableLinkButton") === "true" && getData("buttonLinkURL")) {
+        buttonRow.addComponents(new ButtonBuilder().setLabel(getData("buttonLabel") || "Zobacz więcej").setURL(getData("buttonLinkURL")).setStyle(ButtonStyle.Link));
+      }
+
+      let targetChannel = interaction.channel;
+      const targetChannelID = getData("targetChannelID");
+      if (targetChannelID) {
+        try {
+            const fetchedChannel = await guild.channels.fetch(targetChannelID);
+            if (fetchedChannel && fetchedChannel.isTextBased()) targetChannel = fetchedChannel;
+        } catch(e) { console.log(`${MOD_NAME} Nie znaleziono kanału docelowego, wysyłanie na obecnym kanale.`); }
+      }
+      
+      if (buttonRow.components.length > 0 && getData("buttonPosition") === 'above') {
+        await targetChannel.send({ components: [buttonRow] });
+      }
+      const sentMessage = await targetChannel.send({ embeds: [embed], files: [finalAttachment] });
+      if (buttonRow.components.length > 0 && getData("buttonPosition") === 'below') {
+        await targetChannel.send({ components: [buttonRow] });
+      }
+      
+      if (sentMessage) {
+        const reactions = [getData("reaction1"), getData("reaction2"), getData("reaction3"), getData("reaction4")].filter(Boolean);
+        for (const reaction of reactions) {
+          try { await sentMessage.react(reaction); } catch (err) { console.error(`${MOD_NAME} Nie udało się dodać reakcji "${reaction}":`, err); }
+        }
+      }
+
+      const secondMessageImageURL = getData("secondMessageImageURL");
+      if (secondMessageImageURL) {
+        try { await targetChannel.send({ content: secondMessageImageURL }); }
+        catch (err) { console.error(`${MOD_NAME} Nie udało się wysłać drugiej wiadomości:`, err); }
+      }
+
+    } catch (err) {
+      console.error(`${MOD_NAME} Wystąpił krytyczny błąd:`, err);
+      try {
+        await interaction.editReply({ content: "Wystąpił nieoczekiwany błąd. Sprawdź konsolę bota.", flags: MessageFlags.Ephemeral, embeds:[], files:[], components:[] });
+      } catch (e) { console.error(`${MOD_NAME} Nie udało się nawet wysłać wiadomości o błędzie:`, e); }
+    } finally {
+      this.callNextAction(cache);
+    }
+  },
+  mod() {},
+};
